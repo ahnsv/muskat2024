@@ -58,7 +58,8 @@ const LinkCreationDialog = () => {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="outline" className="p-2">
-          <LinkIcon width={20} />
+          <LinkIcon width={15} className="mr-2" />
+          <span>초대하기</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] text-left">

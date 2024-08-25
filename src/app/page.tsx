@@ -54,10 +54,10 @@ export default function Home() {
             </div>
             {/* options */}
           </CardContent>
-          <CardFooter className="flex">
+          <CardFooter className="flex text-right items-center justify-end">
             <LinkCreationDialog />
-            <Button>예약하기</Button>
-            <ViewCounter />
+            <Button className="ml-2">예약하기</Button>
+            {/* <ViewCounter /> */}
           </CardFooter>
         </Card>
       </div>
