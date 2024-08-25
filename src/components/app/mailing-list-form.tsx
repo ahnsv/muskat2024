@@ -87,7 +87,7 @@ export default function MailingListForm() {
       <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-primary to-primary-foreground">
         <Card className="max-w-md w-full p-6 sm:p-8">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold">🌹감사합니다</CardTitle>
+            <CardTitle className="text-2xl font-bold">감사합니다🍀</CardTitle>
             <CardDescription className="text-muted-foreground">
               당신의 연락를 기다리고 있습니다.
             </CardDescription>
@@ -120,9 +120,9 @@ export default function MailingListForm() {
               )} />
               <FormField control={form.control} name="email" render={({ field }) => (
                 <FormItem>
-                  <FormLabel>전자우편</FormLabel>
+                  <FormLabel>전자우편(이메일)</FormLabel>
                   <FormControl>
-                    <Input id="email" type="email" placeholder="사람의 전자우편은 무엇인가요?" {...field} />
+                    <Input id="email" type="email" placeholder="사람의 전자우편(이메일)은 무엇인가요?" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

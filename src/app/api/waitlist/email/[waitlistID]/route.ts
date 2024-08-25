@@ -89,7 +89,7 @@ export async function POST(req: NextRequest) {
       아래는 현재 메일링 리스트에 등록된 정보입니다. 정보가 정확한지 확인해주세요.
     </p>
     <p class="text-muted">
-      만약에 정보가 잘못되었다면, 아래의 정보를 확인하신 후, <a href="https://talk.humphreyahn.dev/waitlist/update">이 링크</a>를 통해 수정해주세요.
+      아래의 정보를 확인하신 후, 만약에 정보가 잘못되었다면 stahn1995@gmail.com 으로 연락해주세요.
     </p>
     <div class="table-container">
       <table>
