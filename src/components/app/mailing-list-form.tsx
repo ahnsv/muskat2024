@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button"
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import validator from 'validator';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 
 const formSchema = z.object({
@@ -22,11 +23,12 @@ const formSchema = z.object({
   }),
   phone: z.string().min(10, {
     message: "전화번호는 최소 10자리 이상이어야 합니다.",
-  }),
+  }).refine(value => validator.isMobilePhone(value, 'ko-KR'), {
+    message: "전화번호가 유효하지 않습니다.",
+  })
 })
 
 export default function MailingListForm() {
-  // TODO: implement form submission
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
