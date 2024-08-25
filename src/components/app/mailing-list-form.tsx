@@ -13,7 +13,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import validator from 'validator';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Database } from "@/lib/database.types";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -30,6 +31,7 @@ const formSchema = z.object({
 })
 
 export default function MailingListForm() {
+  const [waitlistRecord, setWaitlistRecord] = useState<Database['public']['Tables']['waitlist']['Row'] | null>(null)
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -52,10 +54,33 @@ export default function MailingListForm() {
       alert('문제가 발생했습니다. 다시 시도해주세요.')
       return
     }
-
+    const waitlistRecord = await response.json()
+    setWaitlistRecord(waitlistRecord[0])
     setHasSubmitted(true)
   }
 
+  useEffect(() => {
+    const sendEmail = async () => {
+      const response = await fetch(`/api/waitlist/email/${waitlistRecord?.id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ waitlistID: waitlistRecord?.id })
+      })
+
+      if (!response.ok) {
+        alert('문제가 발생했습니다. 다시 시도해주세요.')
+        return
+      }
+
+      console.log('Email sent')
+    }
+
+    if (hasSubmitted && waitlistRecord?.id) {
+      sendEmail()
+    }
+  }, [hasSubmitted, waitlistRecord?.id])
 
   if (hasSubmitted) {
     return (
