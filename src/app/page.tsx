@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import ViewCounter from "@/components/ui/viewcount";
+import LinkCreationDialog from "@/components/app/link-creation-dialog";
 
 export default function Home() {
   return (
@@ -13,12 +14,12 @@ export default function Home() {
             {/* Invited by */}
             {/* Active until... */}
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex flex-col items-center">
             <Carousel
               opts={{
                 align: "start",
               }}
-              className="w-full max-w-sm my-2"
+              className="w-full max-w-2xl my-2"
             >
               <CarouselContent>
                 {/* TODO: add images */}
@@ -49,12 +50,12 @@ export default function Home() {
                 <span className="text-xl font-bold text-gray-800 mr-2">
                   ₩300000
                 </span>
-                {/* <span className="text-gray-500 text-sm">({selectedPackage})</span> */}
               </div>
             </div>
             {/* options */}
           </CardContent>
-          <CardFooter>
+          <CardFooter className="flex">
+            <LinkCreationDialog />
             <Button>예약하기</Button>
             <ViewCounter />
           </CardFooter>
