@@ -1,22 +1,10 @@
+
 import type { Metadata } from "next";
-import { Inter as FontSans, IBM_Plex_Mono } from "next/font/google"
+import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
 
-import "./globals.css";
+import "../globals.css";
 
-const fontHeading = IBM_Plex_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-heading',
-  weight: '700',
-})
-
-const fontBody = IBM_Plex_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-body',
-  weight: '400',
-})
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -36,8 +24,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontHeading.variable,
-          fontBody.variable
+          fontSans.variable
         )}
       >
         {children}
