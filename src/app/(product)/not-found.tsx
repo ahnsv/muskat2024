@@ -12,9 +12,9 @@ export default function ProductNotFound() {
         {/*   className="mx-auto mb-6" */}
         {/*   style={{ aspectRatio: "200/200", objectFit: "cover" }} */}
         {/* /> */}
-        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Oops, page not found!</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">페이지를 찾을 수 없습니다</h1>
         <p className="mt-4 text-muted-foreground">
-          The page you're looking for doesn't exist. Let's get you back on track.
+          찾고 계신 페이지가 존재하지 않습니다. 다시 시도해 보시기 바랍니다.
         </p>
         <div className="mt-6">
           <Link
